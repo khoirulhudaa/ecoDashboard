@@ -6,6 +6,7 @@ export const useArticleFormik = ({onError, onResponse, content}: {onError?: any,
     const formik = useFormik<any>({
         initialValues: {
             name_article: '',
+            description: '',
         },
         validationSchema: Yup.object({
             name_article: Yup.string()
@@ -16,6 +17,7 @@ export const useArticleFormik = ({onError, onResponse, content}: {onError?: any,
 
                 const body = {
                     name_article: values.name_article,
+                    description: values.description,
                     content
                 }
                 

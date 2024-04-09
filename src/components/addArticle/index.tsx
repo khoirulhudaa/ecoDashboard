@@ -105,6 +105,20 @@ const AddArticle: React.FC = () => {
                         className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
                 </div>
+                <div className='mb-5'>
+                    <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                        Deskripsi Singkat
+                    </label>
+                    <input
+                        type="text"
+                        name='description'
+                        value={articleFormik.values.description}
+                        onChange={articleFormik.handleChange}
+                        onBlur={articleFormik.handleBlur}
+                        placeholder="Pulau karibian"
+                        className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    />
+                </div>
                 <div>
                     <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                         Isi Konten

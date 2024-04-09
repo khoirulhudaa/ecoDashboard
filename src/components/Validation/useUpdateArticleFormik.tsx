@@ -12,6 +12,7 @@ export const useArticleUpdateFormik = ({onError, onResponse, contentNew}: {onErr
         initialValues: {
             name_article: '',
             content: '',
+            description: '',
         },
         validationSchema: Yup.object({
             name_article: Yup.string()
@@ -25,6 +26,7 @@ export const useArticleUpdateFormik = ({onError, onResponse, contentNew}: {onErr
 
                 const body = {
                     name_article: values.name_article,
+                    description: values.description,
                     content: contentNew,
                 }
 
@@ -48,6 +50,7 @@ export const useArticleUpdateFormik = ({onError, onResponse, contentNew}: {onErr
     useEffect(() => {
         formik.setValues({
             name_article: detailArticle?.name_article ?? '',
+            description: detailArticle?.description ?? '',
             content: detailArticle?.content ?? '',
         })
     }, [detailArticle])
