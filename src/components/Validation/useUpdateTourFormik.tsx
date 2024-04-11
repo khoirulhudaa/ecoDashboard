@@ -37,15 +37,8 @@ export const useTourUpdateFormik = ({onError, onResponse}: {onError?: any, onRes
         onSubmit: async (values: any, {resetForm}) => {
             try {
                 console.log('data:', values)
-
-                const body = {
-                    name_article: values.name_article,
-                    content: values.content,
-                }
-
-                console.log(detailTour?.tour_id)
                 
-                const response = await API.updateTour(detailTour?.tour_id, body)
+                const response = await API.updateTour(detailTour?.tour_id, values)
                 console.log('response update article:', response)
 
                 if(response.data.status === 200) {  

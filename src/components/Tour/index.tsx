@@ -96,7 +96,7 @@ const Tour: React.FC = () => {
                   type="text"
                   name='search'
                   onChange={(e: any) => setSearch(e.target.value)}
-                  placeholder="Cari artikel sekarang..."
+                  placeholder="Cari wisata sekarang..."
                   className="w-[90%] bg-transparent pl-10 pr-6 font-medium p-2 outline-0 border-[1px] border-slate-300 rounded-full md:w-[120%]"
                 />
               </div>
