@@ -31,10 +31,11 @@ api.interceptors.request.use(
 // Tambahkan interceptor respons
 api.interceptors.response.use(
     function (response: any) {
+        console.log("response interceptor:", response);
         return response;
     },
     function (error: any) {
-          if (error.response.status === 403 || error.response.message == "You don't have access permissions.") {
+          if (error?.response?.status === 403 || error?.response?.message == "You don't have access permissions.") {
               window.location.pathname = '/auth/signin'
           }
         console.log("error interceptor:", error);

@@ -1,6 +1,6 @@
 "use client"
 
-import { getIsland } from '@/redux/informationSlice';
+import { getContact } from '@/redux/informationSlice';
 import API from '@/services/services';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -9,7 +9,7 @@ import { FaPenAlt, FaPlusCircle, FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import SweetAlert from '../SweetAlert';
 
-const Islands: React.FC = () => {
+const Contact: React.FC = () => {
 
   const dispatch = useDispatch()
   const navigate = useRouter()
@@ -17,14 +17,14 @@ const Islands: React.FC = () => {
   const Auth = useSelector((state: any) => state.Auth?.auth)
 
   const [status, setStatus] = useState<boolean>(false)
-  const [dataUsers, setDataUsers] = useState<any[]>([])
+  const [dataContacts, setDataContacts] = useState<any[]>([])
   const [search, setSearch] = useState<string>('')
 
   useEffect(() => {
 
     (async () => {
-      const response = await API.getAllIsland()
-      setDataUsers(response?.data?.data)
+      const response = await API.getAlContact()
+      setDataContacts(response?.data?.data)
       console.log(response?.data?.data)
     })()
     setStatus(false)
@@ -32,38 +32,39 @@ const Islands: React.FC = () => {
   }, [status])
 
   const handleRemoveFinally = async (id: string) => {
-    const response = await API.removeIsland(id)
-    console.log(response)
     console.log(id)
+    const response = await API.removeContact(id)
+    console.log(response)
     if(response?.data?.status === 200) {
       setStatus(true)
       SweetAlert({
-        title: 'Berhasil hapus pulau!',
+        title: 'Berhasil hapus kontak!',
         showCancelButton: false
       })
     }
   }
 
-  const handleRemoveIsland = (id: string) => {
+  const handleRemoveContact = (id: string) => {
+    console.log(id)
     SweetAlert({
-      title: 'Yakin hapus pulau ?',
+      title: 'Yakin hapus kontak ?',
       icon: 'question',
       onClick: () => handleRemoveFinally(id)
     })
   }
 
-  const handleUpdateIsland = (data?: any) => {
-    dispatch(getIsland(data))
-    navigate.push('/update-island')
+  const handleUpdateContact = (data?: any) => {
+    dispatch(getContact(data))
+    navigate.push('/update-contact')
   }
 
   return (
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="px-4 w-full items-center justify-between py-6 md:px-6 xl:px-7.5">
         <h4 className="text-xl font-semibold md:mb-6 mb-0 text-black dark:text-white">
-          Daftar Pulau
+          Daftar Pemandu Wisata
         </h4>
-      
+
         <div className='w-full flex items-center justify-between md:mt-0 mt-5'>
           <form action="https://formbold.com/s/unique_form_id" method="POST">
               <div className="relative">
@@ -95,21 +96,21 @@ const Islands: React.FC = () => {
                   type="text"
                   name='search'
                   onChange={(e: any) => setSearch(e.target.value)}
-                  placeholder="Cari pulau sekarang..."
+                  placeholder="Cari nama sekarang..."
                   className="w-[90%] bg-transparent pl-10 pr-6 font-medium p-2 outline-0 border-[1px] border-slate-300 rounded-full md:w-[120%]"
                 />
               </div>
           </form>
           {
-            Auth?.role === 'super-admin' || Auth?.role === 'super-sub-admin' ? (
-                <Link href={'/add-island'}>
-                    <div className='w-max flex items-center h-max px-4 py-4 md:py-2 text-center cursor-pointer hover:brightness-[90%] active:scale-[0.98] bg-blue-500 text-white rounded-full ml-[-20px] md:ml-3 shdow-md'>
-                        <FaPlusCircle /> 
-                        <p className='ml-3 md:inline hidden'>
-                            Tambah Pulau
-                        </p>
-                    </div>
-                </Link>
+            Auth?.role === 'super-admin' ? (
+              <Link href={'/add-contact'}>
+                <div className='w-max flex items-center h-max px-4 py-4 md:py-2 text-center cursor-pointer hover:brightness-[90%] active:scale-[0.98] bg-blue-500 text-white rounded-full ml-[-20px] md:ml-3 shdow-md'>
+                    <FaPlusCircle /> 
+                    <p className='ml-3 md:inline hidden'>
+                        Tambah Pemandu
+                    </p>
+                </div>
+              </Link>
             ):
               null
            }
@@ -121,12 +122,15 @@ const Islands: React.FC = () => {
         <div className="col-span-1 hidden md:flex items-center">
           <p className="font-medium">No</p>
         </div>
-        <div className="col-span-6 md:col-span-6 flex items-center">
-          <p className="font-medium">Nama Pulau</p>
+        <div className="col-span-4 md:col-span-4 flex items-center">
+          <p className="font-medium">Nama Pemandu</p>
+        </div>
+        <div className="col-span-2 items-center hidden md:flex">
+          <p className="font-medium">Nomer</p>
         </div>
         {
             Auth?.role === 'super-admin' ? (
-              <div className="col-span-1 flex items-end">
+              <div className="col-span-4 md:col-span-1 flex items-end">
                 <p className="font-medium">Aksi</p>
               </div>
             ):
@@ -134,12 +138,11 @@ const Islands: React.FC = () => {
         }
       </div>
 
-      {
-      dataUsers?.length > 0 ? (
-        dataUsers
+      {dataContacts?.length > 0 ? (
+        dataContacts
         .filter((sub: any) => {
           if (search && search !== '') {
-            return sub.name_island.toLowerCase().includes(search.toLowerCase());
+            return sub.name_contact.toLowerCase().includes(search.toLowerCase());
           }
           return true;
         })
@@ -149,27 +152,32 @@ const Islands: React.FC = () => {
             key={key}
           >
             <div className="col-span-1 hidden md:flex items-center">
-              <div className="flex flex-col sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <p className="text-sm text-black dark:text-white">
                   {key + 1}
                 </p>
               </div>
             </div>
-            <div className="col-span-6 md:col-span-6 flex items-center">
+            <div className="col-span-4 md:col-span-4 flex items-center">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <p className="text-sm text-black dark:text-white">
-                  {data?.name_island}
+                  {data?.name_contact}
                 </p>
               </div>
             </div>
+            <div className="col-span-2 items-center hidden md:flex">
+              <p className="text-sm text-black dark:text-white">
+                {data?.number}
+              </p>
+            </div>
             {
-              Auth?.role === 'super-admin' || Auth?.role === 'super-sub-admin' ? (
+              Auth?.role === 'super-admin' ? (
                 <div className="col-span-4 md:col-span-1 flex">
                   <div className='flex'>
-                    <div onClick={() => handleRemoveIsland(data?.island_id)} className='w-[34px] h-[34px] rounded-[6px] mr-2 bg-[red] cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
+                    <div onClick={() => handleRemoveContact(data?.contact_id)} className='w-[34px] h-[34px] rounded-[6px] mr-2 bg-[red] cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
                       <FaTrash />
                     </div>
-                    <div onClick={() => handleUpdateIsland(data)} className='w-[34px] h-[34px] bg-yellow-500 rounded-[6px] ml-2 cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
+                    <div onClick={() => handleUpdateContact(data)} className='w-[34px] h-[34px] bg-yellow-500 rounded-[6px] ml-2 cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
                       <FaPenAlt />
                     </div>
                   </div>
@@ -179,11 +187,11 @@ const Islands: React.FC = () => {
           }
           </div>
         ))
-      ) :
-        <p className='text-center py-12 bordet-t border-t-slate-200'>Belum ada data</p>
-      }
+      ):
+      <p className='text-center border-t border-t-slate-200 py-12'>Belum ada data</p>
+    }
     </div>
   );
 };
 
-export default Islands;
+export default Contact;

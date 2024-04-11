@@ -2,18 +2,24 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface InformationState {
     detailTour: any,
+    detailCulinary: any,
+    detailSpice: any,
     detailIsland: any,
     detailArticle: any,
-    user: any,
-    detailUser: any
+    detailContact: any,
+    detailUser: any,
+    user: any
 }
 
 const initialState: InformationState = {
     detailTour: null,
+    detailCulinary: null,
+    detailSpice: null,
     detailIsland: null,
     detailArticle: null,
-    user: [],
-    detailUser: null
+    detailContact: null,
+    detailUser: null,
+    user: []
 }
 
 const informatSlice = createSlice({
@@ -25,6 +31,24 @@ const informatSlice = createSlice({
         },
         clearTour: (state) => {
             state.detailTour = null
+        },
+        getSpice: (state, action: PayloadAction<any>) => {
+            state.detailSpice = action.payload
+        },
+        clearSpice: (state) => {
+            state.detailSpice = null
+        },
+        getContact: (state, action: PayloadAction<any>) => {
+            state.detailContact = action.payload
+        },
+        clearContact: (state) => {
+            state.detailContact = null
+        },
+        getCulinary: (state, action: PayloadAction<any>) => {
+            state.detailCulinary = action.payload
+        },
+        clearCulinary: (state) => {
+            state.detailCulinary = null
         },
         getIsland: (state, action: PayloadAction<any>) => {
             state.detailIsland = action.payload
@@ -57,6 +81,6 @@ const informatSlice = createSlice({
     }
 })
 
-export const { getTour, clearTour, getIsland, clearIsland, getArticle, clearArticle, getUser, getDetailUser, clearUser } = informatSlice.actions;
+export const { getTour, clearTour, getSpice, clearSpice, getContact, clearContact, getCulinary, clearCulinary, getIsland, clearIsland, getArticle, clearArticle, getUser, getDetailUser, clearUser } = informatSlice.actions;
 export default informatSlice.reducer;
 

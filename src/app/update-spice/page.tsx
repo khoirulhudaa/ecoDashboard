@@ -1,5 +1,5 @@
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Tour from "@/components/Tour";
+import UpdateSpice from "@/components/updateSpice";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,15 +7,14 @@ export const metadata: Metadata = {
   description: "Website ecoNusantara",
 };
 
-const TourPage = () => {
+const UpdateCulinaryPage = () => {
   return (
     <DefaultLayout>
-
       <div className="flex flex-col gap-10">
-        <Tour />
+        <UpdateSpice />
       </div>
     </DefaultLayout>
   );
 };
 
-export default TourPage
+export default UpdateCulinaryPage

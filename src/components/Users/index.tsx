@@ -137,54 +137,58 @@ const Users: React.FC = () => {
         }
       </div>
 
-      {dataUsers?.length > 0 && dataUsers
-      .filter((sub: any) => {
-        if (search && search !== '') {
-          return sub.username.toLowerCase().includes(search.toLowerCase());
-        }
-        return true;
-      })
-      .map((data: any, key: number) => (
-        <div
-          className="grid border-t border-stroke px-4 py-4.5 dark:border-strokedark grid-cols-8 md:px-6 2xl:px-7.5"
-          key={key}
-        >
-          <div className="col-span-1 hidden md:flex items-center">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+      {dataUsers?.length > 0 ? (
+        dataUsers
+        .filter((sub: any) => {
+          if (search && search !== '') {
+            return sub.username.toLowerCase().includes(search.toLowerCase());
+          }
+          return true;
+        })
+        .map((data: any, key: number) => (
+          <div
+            className="grid border-t border-stroke px-4 py-4.5 dark:border-strokedark grid-cols-8 md:px-6 2xl:px-7.5"
+            key={key}
+          >
+            <div className="col-span-1 hidden md:flex items-center">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <p className="text-sm text-black dark:text-white">
+                  {key + 1}
+                </p>
+              </div>
+            </div>
+            <div className="col-span-4 md:col-span-3 flex items-center">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <p className="text-sm text-black dark:text-white">
+                  {data?.username}
+                </p>
+              </div>
+            </div>
+            <div className="col-span-3 items-center hidden md:flex">
               <p className="text-sm text-black dark:text-white">
-                {key + 1}
+                {data?.email}
               </p>
             </div>
-          </div>
-          <div className="col-span-4 md:col-span-3 flex items-center">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-              <p className="text-sm text-black dark:text-white">
-                {data?.username}
-              </p>
-            </div>
-          </div>
-          <div className="col-span-3 items-center hidden md:flex">
-            <p className="text-sm text-black dark:text-white">
-              {data?.email}
-            </p>
-          </div>
-          {
-            Auth?.role === 'super-admin' ? (
-              <div className="col-span-4 md:col-span-1 flex">
-                <div className='flex'>
-                  <div onClick={() => handleRemoveUser(data?.user_id)} className='w-[34px] h-[34px] rounded-[6px] mr-2 bg-[red] cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
-                    <FaTrash />
-                  </div>
-                  <div onClick={() => handleUpdateUser(data)} className='w-[34px] h-[34px] bg-yellow-500 rounded-[6px] ml-2 cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
-                    <FaPenAlt />
+            {
+              Auth?.role === 'super-admin' ? (
+                <div className="col-span-4 md:col-span-1 flex">
+                  <div className='flex'>
+                    <div onClick={() => handleRemoveUser(data?.user_id)} className='w-[34px] h-[34px] rounded-[6px] mr-2 bg-[red] cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
+                      <FaTrash />
+                    </div>
+                    <div onClick={() => handleUpdateUser(data)} className='w-[34px] h-[34px] bg-yellow-500 rounded-[6px] ml-2 cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
+                      <FaPenAlt />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ):
-              null
-        }
-        </div>
-      ))}
+              ):
+                null
+          }
+          </div>
+        ))
+      ) :
+        <p className='text-center py-12 bordet-t border-t-slate-200'>Belum ada data</p>
+      }
     </div>
   );
 };

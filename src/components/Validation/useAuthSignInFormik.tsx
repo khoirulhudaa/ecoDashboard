@@ -13,7 +13,7 @@ export const useAuthSignInFormik = ({onError, onResponse}: {onError?: any, onRes
     const formik = useFormik<any>({
         initialValues: {
             email: '',
-            password: null,
+            password: '',
         },
         validationSchema: Yup.object({
             email: Yup.string()
@@ -39,11 +39,9 @@ export const useAuthSignInFormik = ({onError, onResponse}: {onError?: any, onRes
                     resetForm()
                 }else {
                     onError(response.data.message)
-                    resetForm()
                 }
             } catch (error: any) {
                 onError(error.message)
-                resetForm()
             }
         }
     })

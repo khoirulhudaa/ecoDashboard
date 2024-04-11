@@ -1,5 +1,5 @@
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Tour from "@/components/Tour";
+import AddContact from "@/components/addContact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,15 +7,14 @@ export const metadata: Metadata = {
   description: "Website ecoNusantara",
 };
 
-const TourPage = () => {
+const AddContactPage = () => {
   return (
     <DefaultLayout>
-
       <div className="flex flex-col gap-10">
-        <Tour />
+        <AddContact />
       </div>
     </DefaultLayout>
   );
 };
 
-export default TourPage
+export default AddContactPage

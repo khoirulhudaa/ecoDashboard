@@ -21,7 +21,7 @@ const API = {
         return api.post(`/account/delete/${user_id}`)
     },
     
-    // tOUR
+    // Tour
     addTour: (body: any) => {
         return api.post('/tour', body)
     },
@@ -34,7 +34,52 @@ const API = {
     updateTour: (tour_id: string, body: any) => {
         return api.post(`/tour/update/${tour_id}`, body)
     },
+
+    // Spice
+    addSpice: (body: any) => {
+        return api.post('/spice', body)
+    },
+    getAlSpice: () => {
+        return api.get(`/spice`)
+    },
+    removeSpice: (spice_id: string) => {
+        return api.post(`/spice/remove/${spice_id}`)
+    },
+    updateSpice: (spice_id: string, body: any) => {
+        return api.post(`/spice/update/${spice_id}`, body)
+    },
+
+    // Culinary
+    addCulinary: (body: any) => {
+        return api.post('/culinary', body)
+    },
+    getAlCulinary: () => {
+        return api.get(`/culinary`)
+    },
+    removeCulinary: (culinary_id: string) => {
+        return api.post(`/culinary/remove/${culinary_id}`)
+    },
+    updateCulinary: (culinary_id: string, body: any) => {
+        console.log(culinary_id)
+        console.log(body)
+        return api.post(`/culinary/update/${culinary_id}`, body)
+    },
+
+    // Contact
+    addContact: (body: any) => {
+        return api.post('/contact', body)
+    },
+    getAlContact: () => {
+        return api.get(`/contact`)
+    },
+    removeContact: (contact_id: string) => {
+        return api.post(`/contact/remove/${contact_id}`)
+    },
+    updateContact: (contact_id: string, body: any) => {
+        return api.post(`/contact/update/${contact_id}`, body)
+    },
     
+    // Island
     addIsland: (body: any) => {
         return api.post('/island', body)
     },
@@ -48,6 +93,7 @@ const API = {
         return api.post(`/island/update/${island_id}`, body)
     },
     
+    // Article
     addArticle: (body: any) => {
         return api.post('/article', body)
     },

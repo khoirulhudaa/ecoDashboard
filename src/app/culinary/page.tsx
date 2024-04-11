@@ -1,21 +1,20 @@
+import Culinary from "@/components/Culinary";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Tour from "@/components/Tour";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ecoNusantara",
-  description: "Website ecoNusantara",
+    title: "ecoNusantara",
+    description: "Website ecoNusantara",
 };
 
-const TourPage = () => {
+const CulinaryPage = () => {
   return (
     <DefaultLayout>
-
       <div className="flex flex-col gap-10">
-        <Tour />
+        <Culinary />
       </div>
     </DefaultLayout>
   );
 };
 
-export default TourPage
+export default CulinaryPage
