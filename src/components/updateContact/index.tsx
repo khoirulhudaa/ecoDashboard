@@ -90,6 +90,22 @@ const UpdateContact: React.FC = () => {
                             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                     </div>
+
+                    <div className='mb-5 w-full'>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            Photo <b className='ml-2'>(Hanta isi jika ingin diperbarui)</b>
+                        </label>
+                        <input
+                            type="file"
+                            name='photo'
+                            onChange={(e) => {
+                                contactFormik.setFieldValue('photo', e?.target?.files?.[0] ?? null)
+                            }}
+                            onBlur={contactFormik.handleBlur}
+                            placeholder="+6292382938928"
+                            className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        />
+                    </div>
                 </div>
                
                 <div className='w-max flex items-center'>

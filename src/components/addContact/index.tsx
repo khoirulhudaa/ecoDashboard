@@ -95,6 +95,24 @@ const AddContact: React.FC = () => {
                     </div>
                 </div>
 
+                <div className='w-full flex justify-between items-center'>
+                    <div className='mb-5 w-full'>
+                        <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                            Photo (Opsiaonal)
+                        </label>
+                        <input
+                            type="file"
+                            name='photo'
+                            onChange={(e) => {
+                                contactFormik.setFieldValue('photo', e?.target?.files?.[0] ?? null)
+                            }}
+                            onBlur={contactFormik.handleBlur}
+                            placeholder="'Masukan Photo"
+                            className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        />
+                    </div>
+                </div>
+
                 <div className='w-max flex items-center'>
                     <Link href={'/contact'}>
                         <button type='button' className='putline-0 mr-3 w-max h-max rounded-lg flex items-center justify-center cursor-pointer border border-red-300 active:scale-[0.98] hover:brightness-[90%] px-5 py-[6px] shadow-md text-red bg-white mt-6'>

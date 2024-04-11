@@ -12,6 +12,7 @@ export const useContactUpdateFormik = ({onError, onResponse}: {onError?: any, on
         initialValues: {
             name_contact: '',
             number: 0,
+            phptp: null,
         },
         validationSchema: Yup.object({
             name_contact: Yup.string()
@@ -23,7 +24,14 @@ export const useContactUpdateFormik = ({onError, onResponse}: {onError?: any, on
             try {
                 console.log('data:', values)
 
-                const response = await API.updateContact(detailContact?.contact_id, values)
+                const formData = new FormData()
+                formData.append('name_contact', values.name_contact)
+                formData.append('number', values.number)
+                if(values.photo  &&  values.photo !== null) {
+                    formData.append('photo', values.photo)
+                }
+
+                const response = await API.updateContact(detailContact?.contact_id, formData)
                 console.log('response update island:', response)
 
                 if(response.data.status === 200) {  
