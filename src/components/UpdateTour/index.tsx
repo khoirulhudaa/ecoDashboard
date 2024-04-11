@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { FaSpinner } from 'react-icons/fa';
 import ErrorMessage from '../ErrorMessage';
 import SweetAlert from '../SweetAlert';
-import { useTourFormik } from '../Validation/useTourFormik';
+import { useTourUpdateFormik } from '../Validation/useUpdateTourFormik';
 
 const UpdateTour: React.FC = () => {
 
@@ -44,7 +44,7 @@ const UpdateTour: React.FC = () => {
         stopLoading()
     }
 
-    const tourFormik = useTourFormik({
+    const tourFormik = useTourUpdateFormik({
         onError: handleErrorMessage,
         onResponse: handleResponseUser
     })
