@@ -27,7 +27,7 @@ const UpdateTour: React.FC = () => {
     const handleResponseUser = () => {
         setError('')
         SweetAlert({
-            title: 'Berhasil tambah wisata!',
+            title: 'Berhasil perbarui wisata!',
             showCancelButton: false,
             icon: 'success'
         })
@@ -94,7 +94,7 @@ const UpdateTour: React.FC = () => {
                                 {
                                     islands && islands?.length > 0 ? (
                                         islands?.map((data: any, index: number) => (
-                                            <option key={index} value={data?.name_island}>{data?.name_island}</option>
+                                            <option key={index} selected={data?.name_island === tourFormik.values.island} value={data?.name_island}>{data?.name_island}</option>
                                         ))
                                     ):
                                         null
