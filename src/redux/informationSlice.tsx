@@ -8,7 +8,8 @@ interface InformationState {
     detailArticle: any,
     detailContact: any,
     detailUser: any,
-    user: any
+    user: any,
+    detailEvent: any
 }
 
 const initialState: InformationState = {
@@ -19,7 +20,8 @@ const initialState: InformationState = {
     detailArticle: null,
     detailContact: null,
     detailUser: null,
-    user: []
+    user: [],
+    detailEvent: null
 }
 
 const informatSlice = createSlice({
@@ -62,6 +64,12 @@ const informatSlice = createSlice({
         clearArticle: (state) => {
             state.detailArticle = null
         },
+        getEvent: (state, action: PayloadAction<any>) => {
+            state.detailEvent = action.payload
+        },
+        clearEvent: (state) => {
+            state.detailEvent = null
+        },
         getUser: (state, action: PayloadAction<any>) => {
             state.user = {
                 ...state.user,
@@ -81,6 +89,6 @@ const informatSlice = createSlice({
     }
 })
 
-export const { getTour, clearTour, getSpice, clearSpice, getContact, clearContact, getCulinary, clearCulinary, getIsland, clearIsland, getArticle, clearArticle, getUser, getDetailUser, clearUser } = informatSlice.actions;
+export const { getTour, clearTour, getSpice, clearSpice, getEvent, clearEvent, getContact, clearContact, getCulinary, clearCulinary, getIsland, clearIsland, getArticle, clearArticle, getUser, getDetailUser, clearUser } = informatSlice.actions;
 export default informatSlice.reducer;
 

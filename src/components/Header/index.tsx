@@ -50,15 +50,6 @@ const Header = (props: {
               </span>
             </span>
           </button>
-
-          <Link className="block flex-shrink-0 lg:hidden" href="/dashboard">
-            <Image
-              width={32}
-              height={32}
-              src={"/images/logo/logo-icon.svg"}
-              alt="Logo"
-            />
-          </Link>
         </div>
 
         <div className="w-full flex items-end gap-3 2xsm:gap-7">

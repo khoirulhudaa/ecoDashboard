@@ -106,6 +106,35 @@ const API = {
     updateArticle: (article_id: string, body: any) => {
         return api.post(`/article/update/${article_id}`, body)
     },
+  
+    // Event
+    addEvent: (body: any) => {
+        return api.post('/event', body)
+    },
+    getEvent: () => {
+        return api.get(`/event`)
+    },
+    removeEvent: (event_id: string) => {
+        return api.post(`/event/remove/${event_id}`)
+    },
+    updateEvent: (event_id: string, body: any) => {
+        console.log(event_id)
+        return api.post(`/event/update/${event_id}`, body)
+    },
+
+    // Email
+    addMessageEmail: (body: any) => {
+        return api.post('/email', body)
+    },
+    getAllEmail: () => {
+        return api.get('/email')
+    },
+    removeEmail: (email_id: string) => {
+        return api.post(`/email/remove/${email_id}`)
+    },
+
+    
+
 }
 
 export default API;
