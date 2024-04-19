@@ -44,7 +44,12 @@ const SignIn: React.FC = () => {
 
   return (
     <div className="flex w-screen flex items-center justify-center h-screen overflow-hidden">
-      <div className="w-full h-screen border-r border-r-slate-300 bg-white border-stroke dark:border-strokedark w-[100vw] md:w-[35vw] xl:border-l-2">
+      <div className="relative w-full h-screen border-r border-r-slate-300 bg-white border-stroke dark:border-strokedark w-[100vw] md:w-[35vw] xl:border-l-2">
+        <Image 
+          src={Image2}
+          className="absolute left-[0%] top-[50%] transform translate-y-[-60%] md:hidden flex opacity-[0.1] rotate-[35deg] scale-[1.5]"
+          alt="image auth"
+        />
         <div className="w-full h-full flex justify-center flex-col p-4 sm:p-12.5 xl:p-17.5">
           <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
             ecoDashboard
@@ -71,7 +76,7 @@ const SignIn: React.FC = () => {
                   onChange={signInFormik.handleChange}
                   onBlur={signInFormik.handleBlur}
                   placeholder="example@diskominfo.com"
-                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  className="w-full rounded-lg border border-stroke bg-white py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 />
 
                 <span className="absolute right-4 top-4">
@@ -107,7 +112,7 @@ const SignIn: React.FC = () => {
                   onChange={signInFormik.handleChange}
                   onBlur={signInFormik.handleBlur}
                   placeholder="example: 125***dshdg"
-                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  className="w-full rounded-lg border border-stroke bg-white py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 />
 
                 <span className="absolute right-4 top-4">

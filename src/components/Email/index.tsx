@@ -102,7 +102,7 @@ const Email: React.FC = () => {
           </form>
           {
             Auth?.role === 'super-admin' ? (
-              <Link href={'/add-culinary'}>
+              <Link href={'/add-message'}>
                 <div className='w-max flex items-center h-max px-4 py-4 md:py-2 text-center cursor-pointer hover:brightness-[90%] active:scale-[0.98] bg-blue-500 text-white rounded-full ml-[-20px] md:ml-3 shdow-md'>
                     <FaPlusCircle /> 
                     <p className='ml-3 md:inline hidden'>
