@@ -69,8 +69,8 @@ const AddTour: React.FC = () => {
                     null
             }           
             <form>
-                <div className='w-full flex justify-between items-center'>
-                    <div className='mb-5 w-[48%]'>
+                <div className='w-full lg:flex justify-between items-center'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Nama Lokasi
                         </label>
@@ -84,7 +84,7 @@ const AddTour: React.FC = () => {
                             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                     </div>
-                    <div className='mb-5 w-[48%]'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Pulau
                         </label>
@@ -104,8 +104,8 @@ const AddTour: React.FC = () => {
                     </div>
                 </div>
                
-                <div className='w-full flex justify-between items-center'>
-                    <div className='mb-5 w-[48%]'>
+                <div className='w-full lg:flex justify-between items-center'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Latitude
                         </label>
@@ -119,7 +119,7 @@ const AddTour: React.FC = () => {
                             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                     </div>
-                    <div className='mb-5 w-[48%]'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Longitude
                         </label>
@@ -135,8 +135,8 @@ const AddTour: React.FC = () => {
                     </div>
                 </div>
                
-                <div className='w-full flex justify-between items-center'>
-                    <div className='mb-5 w-[48%]'>
+                <div className='w-full lg:flex justify-between items-center'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Alamat
                         </label>
@@ -150,7 +150,7 @@ const AddTour: React.FC = () => {
                             className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                         />
                     </div>
-                    <div className='mb-5 w-[48%]'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Link Google Map
                         </label>
@@ -166,8 +166,8 @@ const AddTour: React.FC = () => {
                     </div>
                 </div>
                
-                <div className='w-full flex justify-between items-center'>
-                    <div className='mb-5 w-[48%]'>
+                <div className='w-full lg:flex justify-between items-center'>
+                    <div className='mb-5 w-full lg:w-[48%]'>
                         <label className="mb-3 block text-sm font-medium text-black dark:text-white">
                             Thumbnail
                         </label>
@@ -197,11 +197,11 @@ const AddTour: React.FC = () => {
                                     ):
                                         null
                                 }
-                                <p>Tambah Sekarang</p>
+                                <p>Tambah <span className='ml-2 lg:flex hidden'>Sekarang</span></p>
                             </button>
                         ) :                 
                             <button type={'button'} className={`putline-0 border-white w-max h-max rounded-lg flex items-center justify-center px-5 py-2 shadow-md 'text-slate-500 bg-slate-200 cursor-not-allowed mt-6`}>
-                                <p>Tambah Sekarang</p>
+                                <p>Tambah <span className='ml-2 lg:flex hidden'>Sekarang</span></p>
                             </button>
                     }
                 </div>

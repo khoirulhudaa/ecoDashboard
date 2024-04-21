@@ -151,15 +151,15 @@ const Users: React.FC = () => {
             key={key}
           >
             <div className="col-span-1 hidden md:flex items-center">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex flex-col overflow-hidden gap-4 sm:flex-row sm:items-center">
                 <p className="text-sm text-black dark:text-white">
                   {key + 1}
                 </p>
               </div>
             </div>
             <div className="col-span-4 md:col-span-3 flex items-center">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <p className="text-sm text-black dark:text-white">
+              <div className="flex flex-col overflow-hidden gap-4 sm:flex-row sm:items-center">
+                <p className="text-sm text-black dark:text-white w-[90%] overflow-hidden overflow-ellipsis whitespace-nowrap">
                   {data?.username}
                 </p>
               </div>

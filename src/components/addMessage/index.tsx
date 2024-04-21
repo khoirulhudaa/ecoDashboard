@@ -35,8 +35,7 @@ const AddMessage: React.FC = () => {
                     'numberedList',
                     'blockQuote'
                 ]
-            },
-            removePlugins: ['ImageUpload', 'InsertTable']
+            }
         };
     }, [])
 
@@ -131,11 +130,11 @@ const AddMessage: React.FC = () => {
                                     ):
                                         null
                                 }
-                                <p>Kirim Pesan ke Seluruh Email</p>
+                                <p>Kirim <span className='ml-2 lg:flex hidden'>Sekarang</span></p>
                             </button>
                         ) :                 
                             <button type={'button'} className={`putline-0 border-white w-max h-max rounded-lg flex items-center justify-center px-5 py-2 shadow-md 'text-slate-500 bg-slate-200 cursor-not-allowed mt-6`}>
-                                <p>Kirim Pesan ke Seluruh Email</p>
+                                <p>Kirim <span className='ml-2 lg:flex hidden'>Sekarang</span></p>
                             </button>
                     }
                 </div>

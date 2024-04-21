@@ -158,9 +158,9 @@ const Contact: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="col-span-4 md:col-span-4 flex items-center">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <p className="text-sm text-black dark:text-white">
+            <div className="col-span-4 md:col-span-4 flex items-center w-full">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center w-full">
+                <p className="text-sm text-black dark:text-white w-[90%] overflow-hidden overflow-ellipsis whitespace-nowrap">
                   {data?.name_contact}
                 </p>
               </div>

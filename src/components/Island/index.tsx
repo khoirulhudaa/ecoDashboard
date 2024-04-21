@@ -121,12 +121,12 @@ const Islands: React.FC = () => {
         <div className="col-span-1 hidden md:flex items-center">
           <p className="font-medium">No</p>
         </div>
-        <div className="col-span-6 md:col-span-6 flex items-center">
+        <div className="col-span-5 md:col-span-6 flex items-center">
           <p className="font-medium">Nama Pulau</p>
         </div>
         {
             Auth?.role === 'super-admin' ? (
-              <div className="col-span-1 flex items-end">
+              <div className="col-span-3 lg:col-span-1 flex items-end">
                 <p className="font-medium">Aksi</p>
               </div>
             ):
@@ -155,16 +155,16 @@ const Islands: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="col-span-6 md:col-span-6 flex items-center">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <p className="text-sm text-black dark:text-white">
+            <div className="col-span-5 md:col-span-6 flex items-center w-full">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center w-full">
+                <p className="text-sm text-black dark:text-white w-[90%] overflow-hidden overflow-ellipsis whitespace-nowrap">
                   {data?.name_island}
                 </p>
               </div>
             </div>
             {
               Auth?.role === 'super-admin' || Auth?.role === 'super-sub-admin' ? (
-                <div className="col-span-4 md:col-span-1 flex">
+                <div className="col-span-3 md:col-span-1 flex">
                   <div className='flex'>
                     <div onClick={() => handleRemoveIsland(data?.island_id)} className='w-[34px] h-[34px] rounded-[6px] mr-2 bg-[red] cursor-pointer hover:brightness-[90%] active:scale-[0.98] p-1 text-white flex items-center justify-center'>
                       <FaTrash />
