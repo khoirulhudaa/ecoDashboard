@@ -126,7 +126,7 @@ const SignIn: React.FC = () => {
               </div>
             </div>
 
-            <div className="mb-5">
+            <div className="mb-5 z-[33333333] relative">
               <button type="submit" onClick={() => setLoading(true)} className={`w-full rounded-lg flex items-center justify-center border border-primary ${loading ? 'bg-slate-300 text-slate-400 cursor-not-allowed' : 'bg-primary text-white cursor-pointer hover:bg-opacity-90 active:scale-[0.99]'} p-4 transition`}>
                 { loading ? <FaSpinner className="mr-3 animate-spin duration-100" /> : null} Masuk sekarang
               </button>
