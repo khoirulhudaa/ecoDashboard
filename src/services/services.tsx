@@ -121,6 +121,21 @@ const API = {
         console.log(event_id)
         return api.post(`/event/update/${event_id}`, body)
     },
+   
+    // donation
+    addDonation: (body: any) => {
+        return api.post('/donation', body)
+    },
+    getDonation: () => {
+        return api.get(`/donation`)
+    },
+    removeDonation: (donation_id: string) => {
+        return api.post(`/donation/remove/${donation_id}`)
+    },
+    updateDonation: (donation_id: string, body: any) => {
+        console.log(donation_id)
+        return api.post(`/donation/update/${donation_id}`, body)
+    },
 
     // Email
     addMessageEmail: (body: any) => {

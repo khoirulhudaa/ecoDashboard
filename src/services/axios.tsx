@@ -2,8 +2,8 @@ import axios from "axios";
 import store from "../redux/store";
 
 const api = axios.create({
-    // baseURL: "http://localhost:3600",
-    baseURL: "https://be-econusantara.vercel.app",
+    // baseURL: "https://be-econusantara.vercel.app",
+    baseURL: "http://localhost:3600",
     headers: {
         "Content-Type": "application/json",
     },
